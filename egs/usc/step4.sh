@@ -1,53 +1,61 @@
 #!/bin/bash
 
+# Create nessesary files from usc data.
+
+# Usage:
+#   bash scripts/step4.sh \home\...\data\usc
+
+
 # First directory that we want to create
-dir="data"
+DATA_DIR="data"
+
+# First input argument is the directory of usc data 
+USC_DIR=${1}
 
 # We define the list of directories to create
-directories=("train" "dev" "test")
+DIRECTORIES=("train" "dev" "test")
 
-# TODO: input argument usc/ directory
 
 # Check if the directory and subdirectory exist
-if [ -d "$dir" ]; then
+if [ -d "$DATA_DIR" ]; then
     echo "Directory $dir already exists."
 else
     # Create the directory
-    mkdir "$dir"
-    echo "Directory $dir created."
+    mkdir "$DATA_DIR"
+    echo "Directory $DATA_DIR created."
 fi
 
 # Loop over each directory name and check if it exists
-for subdir in "${directories[@]}"; do
-    if [ -d "$dir/$subdir" ]; then
-        echo "Directory $dir/$subdir already exists."
+for subdir in "${DIRECTORIES[@]}"; do
+    if [ -d "$DATA_DIR/$subdir" ]; then
+        echo "Directory $DATA_DIR/$subdir already exists."
     else
         # Create the directory
-        mkdir "$dir/$subdir"
-        echo "Directory $dir/$subdir created."
+        mkdir "$DATA_DIR/$subdir"
+        echo "Directory $DATA_DIR/$subdir created."
     fi
 done
 
 
 # Set the source and destination filenames
-src_file=("/home/pigi/data/usc/filesets/training.txt" "/home/pigi/data/usc/filesets/validation.txt" "/home/pigi/data/usc/filesets/testing.txt")
-dst_file="uttids"
+SRC_FILE=(${USC_DIR}/filesets/training.txt ${USC_DIR}/filesets/validation.txt ${USC_DIR}/filesets/testing.txt)
+DST_FILE="uttids"
 
 
-for i in "${!src_file[@]}"; do
+for i in "${!SRC_FILE[@]}"; do
     # Get the elements from both lists at the current index
-    element1="${directories[$i]}"
-    element2="${src_file[$i]}"
+    element1="${DIRECTORIES[$i]}"
+    element2="${SRC_FILE[$i]}"
 
     # We copy the contents of the source file to the destination file
-    cp -p "$element2" "$dir/$element1/$dst_file"
+    cp -p "$element2" "$DATA_DIR/$element1/$DST_FILE"
 
     # Copy was successful
-    echo "Copied contents of ${src_file[$i]} to $dir/$element2/$dst_file."
+    echo "Copied contents of ${SRC_FILE[$i]} to $DATA_DIR/$element2/$DST_FILE."
 
     # Set the input and output filenames
-    input_file="$dir/$element1/$dst_file"
-    output_file="$dir/$element1/utt2spk"
+    input_file="$DATA_DIR/$element1/$DST_FILE"
+    output_file="$DATA_DIR/$element1/utt2spk"
 
     # Loop over each line of the input file
     while read line; do
@@ -59,8 +67,8 @@ for i in "${!src_file[@]}"; do
     done < "$input_file"
 
     # Set the input and output filenames
-    input_file="$dir/$element1/$dst_file"
-    output_file="$dir/$element1/wav.scp"
+    input_file="$DATA_DIR/$element1/$DST_FILE"
+    output_file="$DATA_DIR/$element1/wav.scp"
 
     # Loop over each line of the input file
     while read line; do
@@ -69,9 +77,9 @@ for i in "${!src_file[@]}"; do
     done < "$input_file"
 
     # Set the input and lookup filenames, and the output filename
-    input_file="$dir/$element1/$dst_file"
-    lookup_file="/home/pigi/data/usc/transcriptions.txt"
-    output_file="$dir/$element1/text2"
+    input_file="$DATA_DIR/$element1/$DST_FILE"
+    lookup_file="$USC_DIR/transcriptions.txt"
+    output_file="$DATA_DIR/$element1/text2"
 
     # Loop over each line of the input file
     while read line; do
