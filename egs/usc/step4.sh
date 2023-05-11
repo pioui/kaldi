@@ -3,7 +3,7 @@
 # Create nessesary files from usc data.
 
 # Usage:
-#   bash scripts/step4.sh \home\...\data\usc
+#   bash scripts/step4.sh /home/.../data/usc
 
 
 # First directory that we want to create
@@ -38,7 +38,7 @@ done
 
 
 # Set the source and destination filenames
-SRC_FILE=(${USC_DIR}/filesets/training.txt ${USC_DIR}/filesets/validation.txt ${USC_DIR}/filesets/testing.txt)
+SRC_FILE=("$USC_DIR/filesets/training.txt" "$USC_DIR/filesets/validation.txt" "$USC_DIR/filesets/testing.txt")
 DST_FILE="uttids"
 
 
