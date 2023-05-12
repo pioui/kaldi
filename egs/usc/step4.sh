@@ -18,7 +18,7 @@ DIRECTORIES=("train" "dev" "test" "lang" "local" "local/dict" "local/lm_tmp" "lo
 
 # Check if the directory and subdirectory exist
 if [ -d "$DATA_DIR" ]; then
-    echo "Directory $dir already exists."
+    echo "Directory $DATA_DIR already exists."
 else
     # Create the directory
     mkdir "$DATA_DIR"
@@ -47,10 +47,9 @@ for i in "${!SRC_FILE[@]}"; do
     element2="${SRC_FILE[$i]}"
 
     # We copy the contents of the source file to the destination file
-    cp -p "$element2" "$element1/$DST_FILE"
-
+    cp -p "$element2" "$DATA_DIR/$element1/$DST_FILE"
     # Copy was successful
-    echo "Copied contents of ${SRC_FILE[$i]} to $DATA_DIR/$element2/$DST_FILE."
+    echo "Copied contents of ${element2} to $DATA_DIR/$element1/$DST_FILE."
 
     # Set the input and output filenames
     input_file="$DATA_DIR/$element1/$DST_FILE"
