@@ -91,6 +91,24 @@ for i in "${!SRC_FILE[@]}"; do
     done < "$input_file"
 done
 
-
 # Finally we call the python script which will replace the phonemes
 python3 phoneme.py
+
+# Create silence_phones.txt and optional_silence.txt
+echo "sil" > data/local/dict/silence_phones.txt
+echo "sil" > data/local/dict/optional_silence.txt
+
+# Create nonsilence_phones.txt
+grep -v '^sil$' /home/pigi/data/usc/lexicon.txt | awk '{for(i=2;i<=NF;i++) print $i}' | sort -u > data/local/dict/nonsilence_phones.txt
+
+# Create lexicon.txt
+echo "sil sil" > data/local/dict/lexicon.txt
+awk '{print $1, $1}' data/local/dict/nonsilence_phones.txt >> data/local/dict/lexicon.txt
+
+# Create lm_train.txt, lm_dev.txt and lm_test.txt
+for set in train dev test; do
+  awk '{printf("<s> "); for(i=2;i<=NF;i++) printf("%s ",$i); print "</s>"}' data/$set/text > data/local/dict/lm_$set.text
+done
+
+# Create extra_questions.txt
+touch data/local/dict/extra_questions.txt
