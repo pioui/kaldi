@@ -3,7 +3,7 @@
 # Create nessesary files from usc data and folder structure.
 # give input argument that /usc folder directory
 # Usage:
-#   bash scripts/step4.sh /home/.../data/usc
+#   bash scripts/prepare_data.sh /home/.../data/usc
 
 
 # First directory that we want to create
