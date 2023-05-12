@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Create nessesary files from usc data.
-
+# Create nessesary files from usc data and folder structure.
+# give input argument that /usc folder directory
 # Usage:
 #   bash scripts/step4.sh /home/.../data/usc
 
@@ -13,7 +13,7 @@ DATA_DIR="data"
 USC_DIR=${1}
 
 # We define the list of directories to create
-DIRECTORIES=("train" "dev" "test")
+DIRECTORIES=("train" "dev" "test" "lang" "local" "local/dict" "local/lm_tmp" "local/nist_lm")
 
 
 # Check if the directory and subdirectory exist
@@ -36,11 +36,10 @@ for subdir in "${DIRECTORIES[@]}"; do
     fi
 done
 
-
 # Set the source and destination filenames
 SRC_FILE=("$USC_DIR/filesets/training.txt" "$USC_DIR/filesets/validation.txt" "$USC_DIR/filesets/testing.txt")
 DST_FILE="uttids"
-
+DIRECTORIES=("train" "dev" "test")
 
 for i in "${!SRC_FILE[@]}"; do
     # Get the elements from both lists at the current index
@@ -48,7 +47,7 @@ for i in "${!SRC_FILE[@]}"; do
     element2="${SRC_FILE[$i]}"
 
     # We copy the contents of the source file to the destination file
-    cp -p "$element2" "$DATA_DIR/$element1/$DST_FILE"
+    cp -p "$element2" "$element1/$DST_FILE"
 
     # Copy was successful
     echo "Copied contents of ${SRC_FILE[$i]} to $DATA_DIR/$element2/$DST_FILE."
