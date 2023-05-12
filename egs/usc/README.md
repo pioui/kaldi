@@ -1,3 +1,5 @@
 # Phone Recognition using Kaldi
 
-prepro
+Create data directory:
+
+bash scripts/prepare_data.sh <USC DIRECTORY> 
