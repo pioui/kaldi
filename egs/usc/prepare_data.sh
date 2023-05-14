@@ -99,11 +99,17 @@ echo "sil" > data/local/dict/silence_phones.txt
 echo "sil" > data/local/dict/optional_silence.txt
 
 # Create nonsilence_phones.txt
-grep -v '^sil$' /home/pigi/data/usc/lexicon.txt | awk '{for(i=2;i<=NF;i++) print $i}' | sort -u > data/local/dict/nonsilence_phones.txt
+# grep -v '^sil$' $USC_DIR/lexicon.txt | awk '{for(i=2;i<=NF;i++) print $i}' | sort -u > data/local/dict/nonsilence_phones.txt
+# grep -v "sil" $USC_DIR/lexicon.txt | cut -d' ' -f2- | tr ' ' '\n' | sort -u > data/local/dict/nonsilence_phones.txt
+
+grep -v -e 'sil' -e '<oov>' $USC_DIR/lexicon.txt | \
+awk '{for(i=2;i<=NF;++i)print $i}' | sort -u | \
+grep -v 'sil' > data/local/dict/nonsilence_phones.txt
 
 # Create lexicon.txt
 echo "sil sil" > data/local/dict/lexicon.txt
 awk '{print $1, $1}' data/local/dict/nonsilence_phones.txt >> data/local/dict/lexicon.txt
+sort -o data/local/dict/lexicon.txt -k1,1 data/local/dict/lexicon.txt
 
 # Create lm_train.txt, lm_dev.txt and lm_test.txt
 for set in train dev test; do
@@ -112,3 +118,4 @@ done
 
 # Create extra_questions.txt
 touch data/local/dict/extra_questions.txt
+

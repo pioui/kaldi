@@ -1,0 +1,53 @@
+dict:
+loaded 
+Splitting dictionary into 3 lists
+Dictionary 0: (thr: 15507 , 46521, 0 , 3)
+Dictionary 1: (thr: 15334.5 , 30669 , 15852 , 2)
+Dictionary 2: (thr: 14730 , 14730 , 15939 , 1)
+Extracting n-gram statistics for each word list
+Important: dictionary must be ordered according to order of appearance of words in data
+used to generate n-gram blocks,  so that sub language model blocks results ordered too
+Extracting n-gram statistics for dict.000
+Extracting n-gram statistics for dict.001
+[codesize 3]
+Extracting n-gram statistics for dict.002
+[codesize 3]
+[codesize 3]
+dict:loaded 
+load:prepare initial n-grams to make table consistent
+starting to use OOV words [ay]
+dict:loaded 
+load:prepare initial n-grams to make table consistent
+starting to use OOV words [<s>]
+adding some more n-grams to make table consistent
+
+savetxt in Google format: nGrAm 1 11 ngram
+
+dict:loaded 
+load:prepare initial n-grams to make table consistent
+starting to use OOV words [<s>]
+adding some more n-grams to make table consistent
+
+savetxt in Google format: nGrAm 1 10 ngram
+
+adding some more n-grams to make table consistent
+
+savetxt in Google format: nGrAm 1 21 ngram
+
+Estimating language models for each word list
+Estimating language models for dict.000
+Estimating language models for dict.001
+Estimating language models for dict.002
+Merging language models into data/local/lm_tmp/uni_model.ilm.gz
+merge-sublm.pl --size 1 --sublm stat_99187/lm.dict --lm data/local/lm_tmp/uni_model.ilm.gz --backoff 0
+Compute total sizes of n-grams
+join files stat_99187/lm.dict.000.1gr.gz stat_99187/lm.dict.001.1gr.gz stat_99187/lm.dict.002.1gr.gz
+implicitely add <unk> word to counters
+n:1 size:43 unk:0
+Merge all sub LMs
+Write LM Header
+Writing LM Tables
+Level 1
+input from: stat_99187/lm.dict.000.1gr.gz stat_99187/lm.dict.001.1gr.gz stat_99187/lm.dict.002.1gr.gz
+Cleaning temporary directory stat_99187
+Removing temporary directory stat_99187
