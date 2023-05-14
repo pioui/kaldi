@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# Building the language model and calculate preplexities in the end
+# Usage:
+#   bash scripts/languege_model.sh
+
 source path.sh
 
 # Train a unigram and a bigram language model.
