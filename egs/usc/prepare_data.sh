@@ -71,7 +71,7 @@ for i in "${!SRC_FILE[@]}"; do
     # Loop over each line of the input file
     while read line; do
       # Write the utterance_id and the path to the .wav file
-      echo "$line ../../wav/$line.wav" >> "$output_file"
+      echo "$line $USC_DIR/wav/$line.wav" >> "$output_file"
     done < "$input_file"
 
     # Set the input and lookup filenames, and the output filename
