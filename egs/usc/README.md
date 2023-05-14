@@ -10,3 +10,9 @@ bash scripts/prepare_data.sh <USC DATA DIRECTORY>
 ```
 bash scripts/languege_model.sh
 ```
+
+### Extract the MFCC features:
+
+```
+bash scripts/extract_mfcc.sh
+```

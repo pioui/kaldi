@@ -34,11 +34,3 @@ compile-lm data/local/lm_tmp/uni_model.ilm.gz -eval=data/local/dict/lm_test.text
 compile-lm data/local/lm_tmp/bi_model.ilm.gz -eval=data/local/dict/lm_dev.text
 compile-lm data/local/lm_tmp/bi_model.ilm.gz -eval=data/local/dict/lm_test.text
 
-# # Export mfcc
-# ./steps/make_mfcc.sh data/train
-# ./steps/make_mfcc.sh data/test
-# ./steps/make_mfcc.sh data/dev
-# #perform Cepstral Mean and Variance Normalization
-# ./steps/compute_cmvn_stats.sh data/train
-# ./steps/compute_cmvn_stats.sh data/test
-# ./steps/compute_cmvn_stats.sh data/dev
