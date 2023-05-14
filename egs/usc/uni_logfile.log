@@ -16,9 +16,6 @@ Extracting n-gram statistics for dict.002
 dict:loaded 
 load:prepare initial n-grams to make table consistent
 starting to use OOV words [ay]
-dict:loaded 
-load:prepare initial n-grams to make table consistent
-starting to use OOV words [<s>]
 adding some more n-grams to make table consistent
 
 savetxt in Google format: nGrAm 1 11 ngram
@@ -26,28 +23,31 @@ savetxt in Google format: nGrAm 1 11 ngram
 dict:loaded 
 load:prepare initial n-grams to make table consistent
 starting to use OOV words [<s>]
-adding some more n-grams to make table consistent
-
-savetxt in Google format: nGrAm 1 10 ngram
-
+dict:loaded 
+load:prepare initial n-grams to make table consistent
+starting to use OOV words [<s>]
 adding some more n-grams to make table consistent
 
 savetxt in Google format: nGrAm 1 21 ngram
+
+adding some more n-grams to make table consistent
+
+savetxt in Google format: nGrAm 1 10 ngram
 
 Estimating language models for each word list
 Estimating language models for dict.000
 Estimating language models for dict.001
 Estimating language models for dict.002
 Merging language models into data/local/lm_tmp/uni_model.ilm.gz
-merge-sublm.pl --size 1 --sublm stat_99187/lm.dict --lm data/local/lm_tmp/uni_model.ilm.gz --backoff 0
+merge-sublm.pl --size 1 --sublm stat_132808/lm.dict --lm data/local/lm_tmp/uni_model.ilm.gz --backoff 0
 Compute total sizes of n-grams
-join files stat_99187/lm.dict.000.1gr.gz stat_99187/lm.dict.001.1gr.gz stat_99187/lm.dict.002.1gr.gz
+join files stat_132808/lm.dict.000.1gr.gz stat_132808/lm.dict.001.1gr.gz stat_132808/lm.dict.002.1gr.gz
 implicitely add <unk> word to counters
 n:1 size:43 unk:0
 Merge all sub LMs
 Write LM Header
 Writing LM Tables
 Level 1
-input from: stat_99187/lm.dict.000.1gr.gz stat_99187/lm.dict.001.1gr.gz stat_99187/lm.dict.002.1gr.gz
-Cleaning temporary directory stat_99187
-Removing temporary directory stat_99187
+input from: stat_132808/lm.dict.000.1gr.gz stat_132808/lm.dict.001.1gr.gz stat_132808/lm.dict.002.1gr.gz
+Cleaning temporary directory stat_132808
+Removing temporary directory stat_132808

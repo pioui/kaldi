@@ -16,22 +16,22 @@ Extracting n-gram statistics for dict.002
 dict:loaded 
 load:prepare initial n-grams to make table consistent
 starting to use OOV words [<s>]
-+2+2+2+2+2+2dict:loaded 
++2+2+2+2dict:loaded 
 load:prepare initial n-grams to make table consistent
-dict:loaded 
-starting to use OOV words [ay]
+starting to use OOV words [+ay]
+2+2dict:loaded 
 load:prepare initial n-grams to make table consistent
 starting to use OOV words [<s>]
 aadding some more n-grams to make table consistent
 
 savetxt in Google format: nGrAm 2 296 ngram
 
-+2+2+2+2+2+2+2adding some more n-grams to make table consistent
-
-savetxt in Google format: nGrAm 2 532 ngram
-adding some more n-grams to make table consistent
++2+2+2+2+2+2adding some more n-grams to make table consistent
 
 savetxt in Google format: nGrAm 2 282 ngram
++2adding some more n-grams to make table consistent
+
+savetxt in Google format: nGrAm 2 532 ngram
 
 
 Estimating language models for each word list
@@ -39,25 +39,25 @@ Estimating language models for dict.000
 Estimating language models for dict.001
 Estimating language models for dict.002
 Merging language models into data/local/lm_tmp/bi_model.ilm.gz
-merge-sublm.pl --size 2 --sublm stat_99250/lm.dict --lm data/local/lm_tmp/bi_model.ilm.gz --backoff 0
+merge-sublm.pl --size 2 --sublm stat_132871/lm.dict --lm data/local/lm_tmp/bi_model.ilm.gz --backoff 0
 Compute total sizes of n-grams
-join files stat_99250/lm.dict.000.1gr.gz stat_99250/lm.dict.001.1gr.gz stat_99250/lm.dict.002.1gr.gz
+join files stat_132871/lm.dict.000.1gr.gz stat_132871/lm.dict.001.1gr.gz stat_132871/lm.dict.002.1gr.gz
 implicitely add <unk> word to counters
 n:1 size:43 unk:0
-join files stat_99250/lm.dict.000.2gr.gz stat_99250/lm.dict.001.2gr.gz stat_99250/lm.dict.002.2gr.gz
-Executing: /usr/bin/gunzip -c stat_99250/lm.dict.000.2gr.gz | grep -v '10000.000' | wc -l > wc99316
-Executing: /usr/bin/gunzip -c stat_99250/lm.dict.001.2gr.gz | grep -v '10000.000' | wc -l > wc99316
-Executing: /usr/bin/gunzip -c stat_99250/lm.dict.002.2gr.gz | grep -v '10000.000' | wc -l > wc99316
+join files stat_132871/lm.dict.000.2gr.gz stat_132871/lm.dict.001.2gr.gz stat_132871/lm.dict.002.2gr.gz
+Executing: /usr/bin/gunzip -c stat_132871/lm.dict.000.2gr.gz | grep -v '10000.000' | wc -l > wc132937
+Executing: /usr/bin/gunzip -c stat_132871/lm.dict.001.2gr.gz | grep -v '10000.000' | wc -l > wc132937
+Executing: /usr/bin/gunzip -c stat_132871/lm.dict.002.2gr.gz | grep -v '10000.000' | wc -l > wc132937
 n:2 size:1109 unk:0
 Merge all sub LMs
 Write LM Header
 Writing LM Tables
 Level 1
-input from: stat_99250/lm.dict.000.1gr.gz stat_99250/lm.dict.001.1gr.gz stat_99250/lm.dict.002.1gr.gz
+input from: stat_132871/lm.dict.000.1gr.gz stat_132871/lm.dict.001.1gr.gz stat_132871/lm.dict.002.1gr.gz
 Level 2
-input from: stat_99250/lm.dict.000.2gr.gz stat_99250/lm.dict.001.2gr.gz stat_99250/lm.dict.002.2gr.gz
-Executing: /usr/bin/gunzip -c stat_99250/lm.dict.000.2gr.gz | grep -v '10000.000' | gzip -c >> data/local/lm_tmp/bi_model.ilm.gz
-Executing: /usr/bin/gunzip -c stat_99250/lm.dict.001.2gr.gz | grep -v '10000.000' | gzip -c >> data/local/lm_tmp/bi_model.ilm.gz
-Executing: /usr/bin/gunzip -c stat_99250/lm.dict.002.2gr.gz | grep -v '10000.000' | gzip -c >> data/local/lm_tmp/bi_model.ilm.gz
-Cleaning temporary directory stat_99250
-Removing temporary directory stat_99250
+input from: stat_132871/lm.dict.000.2gr.gz stat_132871/lm.dict.001.2gr.gz stat_132871/lm.dict.002.2gr.gz
+Executing: /usr/bin/gunzip -c stat_132871/lm.dict.000.2gr.gz | grep -v '10000.000' | gzip -c >> data/local/lm_tmp/bi_model.ilm.gz
+Executing: /usr/bin/gunzip -c stat_132871/lm.dict.001.2gr.gz | grep -v '10000.000' | gzip -c >> data/local/lm_tmp/bi_model.ilm.gz
+Executing: /usr/bin/gunzip -c stat_132871/lm.dict.002.2gr.gz | grep -v '10000.000' | gzip -c >> data/local/lm_tmp/bi_model.ilm.gz
+Cleaning temporary directory stat_132871
+Removing temporary directory stat_132871

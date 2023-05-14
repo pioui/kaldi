@@ -99,10 +99,10 @@ echo "sil" > data/local/dict/silence_phones.txt
 echo "sil" > data/local/dict/optional_silence.txt
 
 # Create nonsilence_phones.txt
-# grep -v '^sil$' $USC_DIR/lexicon.txt | awk '{for(i=2;i<=NF;i++) print $i}' | sort -u > data/local/dict/nonsilence_phones.txt
-# grep -v "sil" $USC_DIR/lexicon.txt | cut -d' ' -f2- | tr ' ' '\n' | sort -u > data/local/dict/nonsilence_phones.txt
 
-grep -v -e 'sil' -e '<oov>' $USC_DIR/lexicon.txt | \
+
+# grep -v -e 'sil' -e '<oov>' $USC_DIR/lexicon.txt | \ # without "<oov>"
+grep -v -e 'sil' $USC_DIR/lexicon.txt | \
 awk '{for(i=2;i<=NF;++i)print $i}' | sort -u | \
 grep -v 'sil' > data/local/dict/nonsilence_phones.txt
 
