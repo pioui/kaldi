@@ -11,4 +11,9 @@ for x in train dev test; do
   ./steps/make_mfcc.sh data/$x
   # Perform Cepstral Mean and Variance Normalization
   ./steps/compute_cmvn_stats.sh data/$x
+  echo "Number of features extracted for $x set:"
+  feat-to-dim scp:data/train/feats.scp - 
 done
+
+
+
